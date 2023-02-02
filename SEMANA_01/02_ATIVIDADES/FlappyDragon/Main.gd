@@ -1,9 +1,9 @@
 extends Node # instancia a classe Node2D
 
-var status = 1
-var vscore = 0
-var x = 1.5 
-var y = 1.5 
+var status = 1  #representa o status de parado ou jogando
+var vscore = 0 #representa o score base para a primeira gameplay. A cada obstáculo ultrapassado soma-se 1 ao score base
+var x = 5.5  #representa a velocidade horizontal dos obstáculos e cenário relativa ao dragão
+var y = 1.5  #representa a velocidade vertical do dragão em direção ao chão, a "gravidade"
 
 # executa essa função ao carregar o jogo
 func _ready():
