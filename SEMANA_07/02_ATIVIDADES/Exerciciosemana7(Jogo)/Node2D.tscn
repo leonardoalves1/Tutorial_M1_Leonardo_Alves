@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://fogo.png" type="Texture" id=1]
+[ext_resource path="res://cenário.png" type="Texture" id=2]
+[ext_resource path="res://Node2D.gd" type="Script" id=3]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
+[ext_resource path="res://sprite_2.png" type="Texture" id=5]
+[ext_resource path="res://sprite_3.png" type="Texture" id=6]
+[ext_resource path="res://sprite_5.png" type="Texture" id=7]
+[ext_resource path="res://sprite_1.png" type="Texture" id=8]
+[ext_resource path="res://sprite_4.png" type="Texture" id=9]
+[ext_resource path="res://fogo_2.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Cenário" type="Sprite" parent="."]
+position = Vector2( 960, 450 )
+texture = ExtResource( 2 )
+
+[node name="Parede" type="AnimatedSprite" parent="."]
+light_mask = 0
+position = Vector2( 22.25, 446.727 )
+scale = Vector2( 1.03939, 1.03939 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="StaticBody2d" type="StaticBody2D" parent="."]
+position = Vector2( 1, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2d"]
+polygon = PoolVector2Array( 292, -30, 71, 3, 292, 0, 293, 534, 389, 534, 439, 529, 474, 515, 487, 475, 483, 257, 507, 225, 532, 210, 796.46, 201.551, 835, 214, 850, 231, 848, 371, 839, 657, 836, 704, 823, 733, 797, 740, 620, 740, 590, 750, 586, 785, 595, 811, 647, 818, 773, 819, 897, 804, 914, 772, 915, 730, 914, 648, 938, 636, 1033, 635, 1087, 633, 1118, 619, 1127, 580, 1109, 537, 1051, 533, 940, 540, 919, 512, 917, 340, 920, 272, 943, 241, 992, 229, 1187, 224, 1215, 216, 1220, 189, 1212, 160, 1163, 151, 1104, 149, 1057, 150, 1042, 119, 1037, 67, 1074, 23, 1155, 9, 1360, 19, 1391, 34, 1406, 84, 1392, 344, 1366, 353, 1223, 361, 1198, 370, 1199, 376, 1232, 382, 1398, 386, 1396, 798, 1433, 808, 1473, 800, 1463, 497, 1467, 49, 1488, 22, 1599, 14, 1665, 28, 1665, 136, 1663, 757, 1687, 759, 1684, 450, 1696.48, 65.8955, 1716, 25, 1782, 13, 1859, 37, 1881, 103, 1882, 545, 1894, 764, 1905, 788, 1992, 795, 2001, 829, 1920, -28 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 111, 410 )
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="KinematicBody2D"]
+modulate = Color( 0.12549, 0.0862745, 0.0862745, 1 )
+self_modulate = Color( 0.133333, 0.0823529, 0.0823529, 1 )
+margin_left = -54.0
+margin_top = 23.0
+margin_right = 23.0
+margin_bottom = 44.0
+rect_scale = Vector2( 3, 3 )
+align = 1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+position = Vector2( 62, 7 )
+scale = Vector2( 0.605, 0.605 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+position = Vector2( 6, 0 )
+polygon = PoolVector2Array( 32, 22, 29, 7, 29, -4, 36, -14, 46, -16, 55, -14, 63, -18, 81, -6, 85, 12, 79, 31, 73, 25, 69, 24, 62, 27, 56, 29, 49, 27, 47, 24, 44, 23, 36, 29 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 1, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PoolVector2Array( 285, 604, 436, 603, 519, 594, 551, 572, 566, 500, 561, 382, 560, 320, 575, 296, 603, 285, 748, 280, 767, 300, 777, 338, 774, 633, 764, 670, 722, 678, 576, 674, 538, 686, 513, 705, 506, 743, 510, 839, 523, 874, 691, 881, 945, 872, 973, 860, 983, 723, 1002, 707, 1205, 694, 1206, 612, 1206, 503, 1196, 466, 1000, 459, 995, 318, 1041, 300, 1119, 286, 1274, 283, 1284, 214, 1285, 144, 1266, 106, 1131, 94, 1130, 73, 1321, 73, 1314, 163, 1313, 241, 1307, 290, 1257, 301, 1162, 309, 1112, 320, 1113, 426, 1282, 446, 1321, 463, 1320, 793, 1338, 864, 1407, 878, 1480, 884, 1535, 870, 1544, 835, 1546, 733, 1547, 520, 1538, 110, 1555, 90, 1572, 103, 1601, 841, 1629, 860, 1682, 865, 1731, 845, 1751, 815, 1758, 725, 1763, 509, 1758, 111, 1779, 97, 1804, 109, 1810, 427, 1815, 544, 1810, 611, 1818, 712, 1820, 848, 1872, 876, 1918, 877, 1981, 855, 2005, 833, 1934, 969, 268, 958, 77, 898, 278, 891 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 185.0
+margin_top = 241.0
+margin_right = 241.0
+margin_bottom = 256.0
+rect_scale = Vector2( 10, 10 )
+align = 1
+autowrap = true

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://telainstrucoes.gd" type="Script" id=1]
+[ext_resource path="res://telainstrucoes.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Telainstrucoes" type="Sprite" parent="."]
+position = Vector2( 960, 450 )
+texture = ExtResource( 2 )
+
+[node name="ButtonInv" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1946.0
+margin_bottom = 911.0
+
+[connection signal="pressed" from="ButtonInv" to="." method="_on_ButtonInv_pressed"]
+[connection signal="pressed" from="ButtonInv" to="." method="_on_Button_pressed"]
